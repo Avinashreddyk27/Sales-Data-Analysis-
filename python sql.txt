@@ -1,0 +1,57 @@
+import mysql.connector
+
+# Replace the following values with your MySQL server details
+host = 'localhost'  # or the IP address of your server
+database = 'sql_invoicing'
+user = 'root'
+password = 'Babby@27'
+
+# Establish the connection
+connection = mysql.connector.connect(
+    host=host,
+    database=database,
+    user=user,
+    password=password
+)
+
+# Check if the connection was successful
+if connection.is_connected():
+    print("Connected to MySQL server")
+
+# Close the connection once done
+
+
+# Define connection parameters
+username = "root"
+password = "Babby%4027"
+host = "localhost"  # Change if hosted remotely
+port = "3306"       # Default MySQL port
+database = "sql_invoicing"
+
+# Create connection engine
+engine = create_engine(f"mysql+pymysql://{username}:{password}@{host}:{port}/{database}")
+
+
+from sqlalchemy import create_engine, text
+with engine.connect() as conn:
+    result = conn.execute(text("SELECT NOW();"))  # Fetch current time
+    for row in result:
+        print(row)
+
+
+#Load the data into sql server using append option
+from sqlalchemy import create_engine, text
+
+# Define database credentials
+username = "root"
+password = "Babby%4027"  # '@' is URL-encoded as '%40'
+host = "localhost"
+port = "3306"
+database = "sql_invoicing"
+
+# Create engine
+engine = create_engine(f"mysql+pymysql://{username}:{password}@{host}:{port}/{database}")
+
+
+#df.to_sql('df', con=conn, index=False, if_exists = 'append')
+df.to_sql("orders", con=engine, index=False, if_exists="replace")  # 'append' adds data
