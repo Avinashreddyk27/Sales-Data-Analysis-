@@ -19,5 +19,4 @@ This project focuses on **real-time data analytics**, leveraging data processing
 ## 🚀 How to Run the Project
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
-   cd your-repo-name
+   git clone https://github.com/Avinashreddyk27/Sales-Data-Analysis-.git
